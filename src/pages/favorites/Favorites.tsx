@@ -5,9 +5,8 @@ import './favorites.scss';
 
 export const Favorites: FC = () => {
   const { loadFavoritesProducts } = useActions();
-  const { favoritesIdList, isLoading, favoritesProducts } = useTypedSelector(
-    (state) => state.favorites
-  );
+  const { favoritesIdList, isFavoritesLoading, favoritesProducts } =
+    useTypedSelector((state) => state.favorites);
 
   useEffect(() => {
     if (favoritesIdList.length > 0) {
@@ -27,7 +26,7 @@ export const Favorites: FC = () => {
                 <ProductCard key={item.id} {...item} />
               ))}
 
-            {!isLoading && favoritesProducts.length < 1 && (
+            {!isFavoritesLoading && favoritesProducts.length < 1 && (
               <div className='not-found'>
                 <h4>Not products in your favorites yet</h4>
               </div>

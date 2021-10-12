@@ -1,8 +1,8 @@
 import { FavoritesAction, FavoritesActionEnum, FavoritesState } from './types';
 
 const initialState: FavoritesState = {
-  isLoading: false,
-  error: null,
+  isFavoritesLoading: false,
+  favoritesError: null,
   favoritesIdList: [],
   favoritesProducts: [],
 };
@@ -12,15 +12,15 @@ export default function CategoryReducer(
   action: FavoritesAction
 ): FavoritesState {
   switch (action.type) {
-    case FavoritesActionEnum.SET_LOADING: {
-      return { ...state, isLoading: true, error: null };
+    case FavoritesActionEnum.SET_FAVORITES_LOADING: {
+      return { ...state, isFavoritesLoading: true, favoritesError: null };
     }
 
-    case FavoritesActionEnum.SET_ERROR: {
+    case FavoritesActionEnum.SET_FAVORITES_ERROR: {
       return {
         ...state,
-        isLoading: false,
-        error: action.payload,
+        isFavoritesLoading: false,
+        favoritesError: action.payload,
       };
     }
 
@@ -32,7 +32,11 @@ export default function CategoryReducer(
     }
 
     case FavoritesActionEnum.SET_FAVORITES_PRODUCTS: {
-      return { ...state, isLoading: false, favoritesProducts: action.payload };
+      return {
+        ...state,
+        isFavoritesLoading: false,
+        favoritesProducts: action.payload,
+      };
     }
 
     case FavoritesActionEnum.REMOVE_FROM_FAVORITES: {

@@ -14,12 +14,12 @@ const favoritesService = new FavoritesService();
 
 export const FavoritesActionCreators = {
   setError: (error: string): SetErrorAction => ({
-    type: FavoritesActionEnum.SET_ERROR,
+    type: FavoritesActionEnum.SET_FAVORITES_ERROR,
     payload: error,
   }),
 
   setIsLoading: (): SetIsLoadingAction => ({
-    type: FavoritesActionEnum.SET_LOADING,
+    type: FavoritesActionEnum.SET_FAVORITES_LOADING,
   }),
 
   setFavoritesProductsAction: (

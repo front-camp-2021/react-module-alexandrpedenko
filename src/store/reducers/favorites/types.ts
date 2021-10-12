@@ -3,26 +3,26 @@ import { IProduct } from '../../../models';
 export type ILoadedProducts = IProduct[] | [];
 
 export interface FavoritesState {
-  isLoading: boolean;
-  error: string | null;
+  isFavoritesLoading: boolean;
+  favoritesError: string | null;
   favoritesIdList: string[];
   favoritesProducts: IProduct[];
 }
 
 export enum FavoritesActionEnum {
-  SET_LOADING = 'SET_LOADING',
-  SET_ERROR = 'SET_ERROR',
+  SET_FAVORITES_LOADING = 'SET_FAVORITES_LOADING',
+  SET_FAVORITES_ERROR = 'SET_FAVORITES_ERROR',
   SET_TO_FAVORITES = 'SET_TO_FAVORITES',
   REMOVE_FROM_FAVORITES = 'REMOVE_FROM_FAVORITES',
   SET_FAVORITES_PRODUCTS = 'SET_FAVORITES_PRODUCTS',
 }
 
 export interface SetIsLoadingAction {
-  type: FavoritesActionEnum.SET_LOADING;
+  type: FavoritesActionEnum.SET_FAVORITES_LOADING;
 }
 
 export interface SetErrorAction {
-  type: FavoritesActionEnum.SET_ERROR;
+  type: FavoritesActionEnum.SET_FAVORITES_ERROR;
   payload: string;
 }
 
