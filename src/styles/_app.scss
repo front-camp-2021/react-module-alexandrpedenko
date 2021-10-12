@@ -1,0 +1,41 @@
+@import url(https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap);
+@import './vars';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-width: 320px;
+  font-family: $main_font;
+  color: $text_color;
+  background-color: $background_color;
+  overflow-x: hidden;
+}
+
+a {
+  color: $primary_text;
+  text-decoration: none;
+}
+
+.wrapper {
+  max-width: 1920px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+.not-found {
+  padding: 20px 15px;
+  font-size: 30px;
+  color: $primary_text;
+}
+
+/* Media Query */
+@media screen and (max-width: 480px) {
+  .wrapper {
+    padding: 0 15px;
+  }
+}

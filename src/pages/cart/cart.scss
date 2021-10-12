@@ -1,0 +1,40 @@
+@import '../../styles/vars';
+@import '../../styles/_mixins.scss';
+
+.cart {
+  margin: 30px 0;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: $border_radius;
+  box-shadow: $box_shadow;
+}
+
+.cart-total-price {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+
+  &__title {
+    font-size: 24px;
+  }
+
+  &__price {
+    margin-left: 30px;
+    font-size: 30px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .cart {
+    padding: 10px;
+  }
+
+  .cart-total-price {
+    flex-direction: column;
+
+    &__price {
+      margin-left: 0;
+    }
+  }
+}

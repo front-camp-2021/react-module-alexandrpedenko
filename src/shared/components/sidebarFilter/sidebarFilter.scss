@@ -1,0 +1,47 @@
+@import '../../../styles/_vars.scss';
+@import '../../../styles/_mixins.scss';
+
+.filter {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+
+    &-title {
+      @include text-format(normal, normal, 18px, 21px);
+    }
+  }
+
+  &__body {
+    flex-grow: 1;
+    margin-bottom: 28px;
+    width: 100%;
+    padding: 20px 48px;
+    background: $white;
+    box-shadow: $box_shadow;
+    border-radius: $border_radius;
+  }
+
+  &__clearButton {
+    height: 56px;
+    font-family: $main_font;
+    @include text-format(normal, normal, 18px, 21px);
+    box-shadow: $box_shadow;
+    border-radius: $border_radius;
+  }
+}
+
+/* Media Query */
+@media screen and (max-width: 1200px) {
+  .filter {
+    &__body,
+    &__clearButton {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,55 @@
+@import '../../../styles/_vars.scss';
+@import '../../../styles/_mixins.scss';
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px 0;
+
+  &__items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: $secondary;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  &__item-link,
+  &__item-current {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    @include text-format(normal, normal, 18px, 21px);
+    border-radius: 100%;
+  }
+
+  &__item-link {
+    width: 40px;
+    height: 40px;
+    color: $text_color;
+    background-color: $secondary;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: #dddddd;
+    }
+  }
+
+  &__item-current {
+    color: $white;
+    background-color: $primary;
+  }
+
+  &__previous {
+    margin-right: 18px;
+  }
+
+  &__next {
+    margin-left: 18px;
+  }
+}

@@ -1,0 +1,20 @@
+@import '../../../styles/_vars.scss';
+@import '../../../styles/_mixins.scss';
+
+.header {
+  padding: 30px 0;
+
+  &__logo {
+    display: flex;
+    align-items: center;
+
+    &-img {
+      margin-right: 22px;
+    }
+
+    &-text {
+      color: $primary_text;
+      @include text-format(normal, 600, 48px, 27px);
+    }
+  }
+}
