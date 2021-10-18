@@ -8,3 +8,4 @@ export * from './search/Search';
 export * from './filterCheckboxes/FilterCheckboxes';
 export * from './multiRangeSlider/MultiRangeSlider';
 export * from './spinner/Spinner';
+export * from './checkboxInput/CheckboxInput';

@@ -1,6 +1,6 @@
 import { IBrand, ICategory } from '../../models';
 
-export interface preparedFiltersInterface {
+export interface PreparedFiltersInterface {
   value: string;
   title: string;
 }

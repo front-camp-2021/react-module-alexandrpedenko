@@ -1,10 +1,11 @@
 import { ChangeEvent, useEffect, useRef } from 'react';
-import { preparedFiltersInterface } from '../../types';
+import { CheckboxInput } from '..';
+import { PreparedFiltersInterface } from '../../types';
 import './filterCheckboxes.scss';
 
 export interface FilterCheckboxesProps {
   title: string;
-  filterItems: preparedFiltersInterface[];
+  filterItems: PreparedFiltersInterface[];
   resetFormState: boolean;
   checkedItems: string[];
   setCheckboxToState: (value: string) => void;
@@ -34,27 +35,16 @@ export const FilterCheckboxes = ({
     }
   }, [resetFormState]);
 
-  const returnChecked = (value: string) => {
-    if (checkedItems.includes(value)) {
-      return true;
-    } else {
-      return false;
-    }
-  };
-
   return (
     <div className='filter__item'>
       <h5 className='filter__item-title'>{title}</h5>
       <form ref={checkboxFormRef}>
         {filterItems.map((item) => (
           <div className='filter__item-group' key={item.value}>
-            <input
-              type='checkbox'
-              className='filter__item-checkbox'
-              value={item.value}
-              id={item.value}
-              checked={returnChecked(item.value)}
-              onChange={(event) => onCheckHandler(event)}
+            <CheckboxInput
+              item={item}
+              checkedItems={checkedItems}
+              onCheckHandler={onCheckHandler}
             />
             <label className='filter__item-label' htmlFor={item.value}>
               {item.title}

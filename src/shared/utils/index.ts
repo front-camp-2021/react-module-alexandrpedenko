@@ -1,10 +1,10 @@
 import { IBrand, ICategory } from '../../models';
 import { CartProductInterface } from '../../store/reducers/cart/types';
-import { preparedFiltersInterface } from '../types';
+import { PreparedFiltersInterface } from '../types';
 
 export const prepareFilters = (
   arr: IBrand[] | ICategory[]
-): preparedFiltersInterface[] => {
+): PreparedFiltersInterface[] => {
   return arr.map((item) => {
     return {
       value: item.toLowerCase().split(' ').join('_'),

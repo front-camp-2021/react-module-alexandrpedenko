@@ -89,6 +89,7 @@ export const MultiRangeSlider: FC<MultiRangeSliderProps> = ({
           className='thumb thumb--left'
           // @ts-ignore
           style={{ zIndex: minVal > max - 100 ? '5' : undefined }}
+          data-testid='sliderMinElement'
         />
         <input
           type='range'
@@ -103,13 +104,18 @@ export const MultiRangeSlider: FC<MultiRangeSliderProps> = ({
           }}
           onMouseUp={() => onChange({ min: minVal, max: maxVal })}
           className='thumb thumb--right'
+          data-testid='sliderMaxElement'
         />
 
         <div className='slider'>
           <div className='slider__track'></div>
           <div ref={range} className='slider__range'></div>
-          <div className='slider__left-value'>{minVal}</div>
-          <div className='slider__right-value'>{maxVal}</div>
+          <div className='slider__left-value' data-testid='sliderMinValue'>
+            {minVal}
+          </div>
+          <div className='slider__right-value' data-testid='sliderMaxValue'>
+            {maxVal}
+          </div>
         </div>
       </form>
     </div>
