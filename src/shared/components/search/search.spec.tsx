@@ -25,6 +25,7 @@ describe('Search test', () => {
     const resultArray = await screen.findAllByText(/Charcoal Black/i);
     expect(resultArray[0]).toBeInTheDocument();
     expect(screen.queryByText('Products Not Found')).toBeNull();
+    console.log(resultArray);
   });
 
   it('Render Not Found when search product', async () => {

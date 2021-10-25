@@ -47,9 +47,9 @@ export const ProductCard: FC<IProduct> = (props) => {
         <div className='product__info'>
           <h3 className='product__name'>{title}</h3>
           <span className='product__description'>
-            {category}
+            <span data-testid='productCategory'>{category}</span>
             {' | '}
-            {brand}
+            <span data-testid='productBrand'>{brand}</span>
           </span>
         </div>
         <div className='product__buttons'>

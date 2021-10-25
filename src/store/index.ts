@@ -8,7 +8,10 @@ const rootReducer = combineReducers(reducers);
 
 export const store = createStore(
   rootReducer,
-  load({ states: ['category', 'favorites', 'cart'] }),
+  load({
+    states: ['category', 'favorites', 'cart'],
+    disableWarnings: true,
+  }),
   composeWithDevTools(
     applyMiddleware(
       thunk,

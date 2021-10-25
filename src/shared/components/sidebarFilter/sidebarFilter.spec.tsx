@@ -1,22 +1,31 @@
-import { fireEvent, render, waitFor } from '@testing-library/react';
+import { fireEvent, waitFor } from '@testing-library/react';
 import { SidebarFilter } from './SidebarFilter';
-import { Category } from '../../../pages/category/Category';
 
 describe('Sidebar Filters Test', () => {
   const brands = ['Asus', 'Acer', 'Apple', 'Dell'];
   const categories = ['Monitors', 'Laptops', 'Video cards'];
 
-  it('Check Brand and Price value', async () => {
+  let resetFiltersButton: HTMLElement;
+  let acerFilterCheckbox: HTMLElement;
+
+  beforeEach(() => {
     const { getByTestId } = renderWithStore(() => (
       <SidebarFilter categories={categories} brands={brands} />
     ));
+    resetFiltersButton = getByTestId('resetFilters');
+    acerFilterCheckbox = getByTestId('acer');
 
+    fireEvent.click(resetFiltersButton);
+  });
+
+  it('Check Brand in filter', async () => {
     await waitFor(() => {
-      const checkbox = getByTestId('acer');
-
-      expect(checkbox).not.toBeChecked();
-      fireEvent.click(checkbox);
-      expect(checkbox).toBeChecked();
+      expect(acerFilterCheckbox).not.toBeChecked();
+      fireEvent.click(acerFilterCheckbox);
+      expect(acerFilterCheckbox).toBeChecked();
     });
+
+    fireEvent.click(resetFiltersButton);
+    expect(acerFilterCheckbox).not.toBeChecked();
   });
 });

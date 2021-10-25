@@ -11,13 +11,13 @@ describe('Moving RangeSlider change values', () => {
   const resetFormState = false;
   const priceMultiRangeChange = jest.fn();
 
-  let sliderMinElement: Element | null;
-  let sliderMaxElement: Element | null;
-  let sliderMinValue: Element | null;
-  let sliderMaxValue: Element | null;
+  let sliderMinElement: HTMLElement;
+  let sliderMaxElement: HTMLElement;
+  let sliderMinValue: HTMLElement;
+  let sliderMaxValue: HTMLElement;
 
   beforeEach(() => {
-    const { container } = render(
+    const { getByTestId } = render(
       <MultiRangeSlider
         title='Price'
         min={200}
@@ -29,15 +29,15 @@ describe('Moving RangeSlider change values', () => {
       />
     );
 
-    sliderMinElement = container.querySelector('.thumb.thumb--left');
-    sliderMaxElement = container.querySelector('.thumb.thumb--right');
-    sliderMinValue = container.querySelector('.slider__left-value');
-    sliderMaxValue = container.querySelector('.slider__right-value');
+    sliderMinElement = getByTestId('sliderMinElement');
+    sliderMaxElement = getByTestId('sliderMaxElement');
+    sliderMinValue = getByTestId('sliderMinValue');
+    sliderMaxValue = getByTestId('sliderMaxValue');
   });
 
   it('When mounts initial value', () => {
-    expect(parseInt(sliderMinValue.textContent)).toBe(princeRangeState.min);
-    expect(parseInt(sliderMaxValue.textContent)).toBe(princeRangeState.max);
+    expect(sliderMinValue).toHaveTextContent(princeRangeState.min.toString());
+    expect(sliderMaxValue).toHaveTextContent(princeRangeState.max.toString());
   });
 
   it('When slider value between range', () => {
@@ -49,8 +49,8 @@ describe('Moving RangeSlider change values', () => {
       target: { value: 55000 },
     });
 
-    expect(parseInt(sliderMinValue.textContent)).toBe(1000);
-    expect(parseInt(sliderMaxValue.textContent)).toBe(55000);
+    expect(sliderMinValue).toHaveTextContent('1000');
+    expect(sliderMaxValue).toHaveTextContent('55000');
   });
 
   it('When slider value more than max and more than min', () => {
@@ -62,7 +62,7 @@ describe('Moving RangeSlider change values', () => {
       target: { value: 90000 },
     });
 
-    expect(parseInt(sliderMinValue.textContent)).toBe(200);
-    expect(parseInt(sliderMaxValue.textContent)).toBe(85000);
+    expect(sliderMinValue).toHaveTextContent('200');
+    expect(sliderMaxValue).toHaveTextContent('85000');
   });
 });

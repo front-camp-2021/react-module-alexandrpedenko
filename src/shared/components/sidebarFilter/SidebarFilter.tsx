@@ -74,6 +74,7 @@ export const SidebarFilter: FC<SidebarProps> = ({ brands, categories }) => {
         )}
       </div>
       <Button
+        data-testid='resetFilters'
         className='filter__clearButton'
         text='Clear all filters'
         color='primary'
