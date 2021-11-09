@@ -1,0 +1,6 @@
+@mixin text-format($font_style, $font_weight, $font_size, $line_height) {
+  font-style: $font_style;
+  font-weight: $font_weight;
+  font-size: $font_size;
+  line-height: $line_height;
+}

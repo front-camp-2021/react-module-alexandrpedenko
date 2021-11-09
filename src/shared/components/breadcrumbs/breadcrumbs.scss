@@ -1,0 +1,39 @@
+@import '../../../styles/_vars.scss';
+@import '../../../styles/_mixins.scss';
+
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  list-style: none;
+
+  &__item {
+    position: relative;
+    padding-right: 26px;
+    @include text-format(normal, 400, 14px, 17px);
+
+    &:not(:first-child) {
+      padding-left: 14px;
+    }
+
+    &:not(:last-child):after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: 0;
+      display: block;
+      width: 14px;
+      height: 8px;
+      background: url('./images/chevrons-right.svg') no-repeat 50% 50%;
+      background-size: cover;
+      transform: translateY(-50%) rotate(180deg);
+    }
+  }
+
+  &__home {
+    display: block;
+    width: 16px;
+    height: 16px;
+    background: url('./images/home.svg') no-repeat 50% 50%;
+    background-size: cover;
+  }
+}

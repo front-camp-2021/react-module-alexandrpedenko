@@ -1,0 +1,37 @@
+.category {
+  width: 100%;
+  margin-top: 44px;
+
+  &__row {
+    display: flex;
+    margin: 0 -15px;
+  }
+
+  &__sidebar,
+  &__main {
+    padding: 0 15px;
+  }
+
+  &__sidebar {
+    flex: 0 0 30%;
+    max-width: 560px;
+  }
+
+  &__main {
+    width: 100%;
+  }
+}
+
+/* Media Query */
+@media screen and (max-width: 1200px) {
+  .category {
+    &__row {
+      flex-direction: column;
+    }
+
+    &__sidebar {
+      max-width: 100%;
+      margin-bottom: 20px;
+    }
+  }
+}

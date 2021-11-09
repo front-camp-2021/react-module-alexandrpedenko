@@ -1,0 +1,76 @@
+@import '../../../styles/_vars.scss';
+@import '../../../styles/_mixins.scss';
+
+.button {
+  &-wrapper {
+    position: relative;
+  }
+
+  &-counts {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+    font-weight: bold;
+    width: 22px;
+    height: 22px;
+    color: #ffffff;
+    background-color: rgb(224, 75, 75);
+    border-radius: 50%;
+  }
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  font-family: $main_font;
+  border: none;
+  cursor: pointer;
+
+  &_medium {
+    height: 45px;
+    @include text-format(normal, 600, 14px, 18px);
+  }
+
+  &_icon {
+    width: 46px;
+    height: 40px;
+    box-shadow: $box_shadow;
+    border-radius: $border_radius;
+  }
+
+  &_primary {
+    color: #ffffff;
+    background-color: $primary;
+    transition: background 0.2s ease;
+
+    &:hover {
+      background-color: $primary_text;
+    }
+  }
+
+  &_white {
+    color: $text_color;
+    background-color: #ffffff;
+    transition: background 0.2s ease;
+
+    &:hover {
+      background-color: darken($secondary, 10%);
+    }
+  }
+
+  &_secondary {
+    color: $text_color;
+    background-color: $secondary;
+    transition: background 0.2s ease;
+
+    &:hover {
+      background-color: darken($secondary, 10%);
+    }
+  }
+}
